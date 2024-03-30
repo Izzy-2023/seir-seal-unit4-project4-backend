@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'izzy_tech_consulting.apps.IzzyTechConsultingConfig',
     'rest_framework',
+    'tech_consulting'
 ]
 
 MIDDLEWARE = [
