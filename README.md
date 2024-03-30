@@ -78,7 +78,4 @@ List of dependecies using the application.
 |         | /admin/appointments/:id | PUT	| Updates an appointment | 
 |         | /admin/appointments/:id | DELETE | Deletes an appointment|
 
-![Mockups]
 
-### Services Page
-(https://i.imgur.com/NgG4TxO.png))
