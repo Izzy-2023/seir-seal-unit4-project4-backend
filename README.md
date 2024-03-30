@@ -5,11 +5,11 @@
 **Summary**
 | Field | Detail |
 |-------|--------|
-| Project Name | {Put Project Name Here}|
-| Description | {One sentence summarizing what is the app and why it matters} |
-| Developers | {List of Developers} |
-| Live Website | {website of deployed application} |
-| Repo | {Link to git repository} |
+| Project Name | I-Commerce Application|
+| Description | The app is an ecommerce platform that allows users to browse products, add them to their cart, and place orders, while also providing admin functionalities for managing products and orders.  |
+| Developers | {Izzy Zinxhirija} |
+| Live Website |  |
+| Repo | https://github.com/Izzy-2023/seir-seal-unit4-project4-backend |
 
 ## Problem Being Solved and Target Market
 
