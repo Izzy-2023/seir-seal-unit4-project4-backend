@@ -1,28 +1,26 @@
-*A PRD (Product Requirements Document) is created before creating a product or feature and includes the planning required for developers to execute effectively. This document is usually prepared by Product Managers, read more [here](https://www.atlassian.com/agile/product-management/requirements)*
-
 # Product Requirements Documentation
 
 **Summary**
 | Field | Detail |
 |-------|--------|
 | Project Name | I-Commerce Application|
-| Description | The app is an ecommerce platform that allows users to browse products, add them to their cart, and place orders, while also providing admin functionalities for managing products and orders.  |
-| Developers | {Izzy Zinxhirija} |
+| Description | Ecommerce platform to browse products and place orders.  |
+| Developers | Izzy Zinxhirija |
 | Live Website |  |
 | Repo | https://github.com/Izzy-2023/seir-seal-unit4-project4-backend |
 
 ## Problem Being Solved and Target Market
 
-Use this area to explain what problem your app is solving, and who are the people who have this problem.
+The ecommerce app is a platform that allows users to browse, purchase, and manage products online. It offers a user-friendly interface for customers to view products, add them to a shopping cart, and securely complete transactions. The app also provides administrative tools for managing inventory, processing orders, and analyzing sales data.
 
-## User Stories
+## Dependencies
 
-List of stories users should experience when using your application.
+List of dependecies using the application.
 
-- Users should be able to see the site on desktop and mobile
-- Users can create an account
-- Users can sign in to their account
-- Users can create a new item
+- Django Rest Framework
+- dj-database-ur
+- psycopg2-binary
+- django-environ
 - Users can see all their items on the dashboard
 - Users can update items
 - User can delete items
@@ -47,15 +45,6 @@ List of stories users should experience when using your application.
 | is_admin | BooleanField | Indicates if the user is an admin (for users) |
 
 ## Route Tables
-
-For backend Applications you'll want to detail the different routes and types of your request your server can receive. There are three main things to define.
-
-- The endpoint: the URL to which the request must be made
-- The method: the type of http method the request should be
-- The response: what the response should be, a web page, json data, etc.
-
-You should also include any additional notes on any special headers that may be used and so forth.
-
 
 |Route Name | Endpoint | Method | Description |
 |---------- | -------- | ------ | ----------- |
