@@ -21,9 +21,7 @@ List of dependecies using the application.
 - dj-database-ur
 - psycopg2-binary
 - django-environ
-- Users can see all their items on the dashboard
-- Users can update items
-- User can delete items
+- django.contrib.auth
 
 ## ERD (Entity Relationship Diagram)
 
