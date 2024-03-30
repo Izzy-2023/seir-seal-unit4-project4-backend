@@ -47,6 +47,17 @@ INSTALLED_APPS = [
     'tech_consulting'
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',  # Use SessionAuthentication for browser-based authentication
+        'rest_framework.authentication.TokenAuthentication',    # Use TokenAuthentication for API authentication
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Require authenticated users for all endpoints
+    ],
+}
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
