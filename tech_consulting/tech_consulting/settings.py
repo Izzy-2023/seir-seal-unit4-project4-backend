@@ -13,6 +13,11 @@ from pathlib import Path
 import dj_database_url
 import environ
 import os
+import sys
+
+sys.path.insert(0, 'C:\\Users\\izinx\\development\\seir_seal\\projects\\Project4\\backend\\tech_consulting')
+# AUTH_USER_MODEL = 'izzy_tech_consulting.User'
+
 
 env=environ.Env()
 environ.Env.read_env()
@@ -32,6 +37,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Add the origin of your frontend application
+]
+
 
 # Application definition
 
@@ -42,19 +51,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'izzy_tech_consulting.apps.IzzyTechConsultingConfig',
     'rest_framework',
-    'tech_consulting'
+    'izzy_tech_consulting',
+    'corsheaders'
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',  # Use SessionAuthentication for browser-based authentication
-        'rest_framework.authentication.TokenAuthentication',    # Use TokenAuthentication for API authentication
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # Require authenticated users for all endpoints
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [],
 }
 
 
@@ -66,6 +70,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Add this line
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 ROOT_URLCONF = 'tech_consulting.urls'

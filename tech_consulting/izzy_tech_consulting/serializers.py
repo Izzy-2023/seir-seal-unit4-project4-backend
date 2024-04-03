@@ -11,3 +11,4 @@ class AppointmentSerializer(serializers.ModelSerializer):
         model = Appointment
         fields = '__all__'
 
+
