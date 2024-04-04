@@ -18,7 +18,7 @@ Including another URLconf
 # urls.py
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from izzy_tech_consulting.views import ServiceViewSet, AppointmentViewSet, CustomView, ServiceListView, BookAppointment
+from izzy_tech_consulting.views import ServiceViewSet, AppointmentViewSet, BookAppointment
 
 router = DefaultRouter()
 router.register(r'services', ServiceViewSet)
@@ -26,8 +26,8 @@ router.register(r'appointments', AppointmentViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('custom-view/', CustomView.as_view(), name='custom-view'),
-    path('services-list/', ServiceListView.as_view(), name='services-list'),
+    # path('custom-view/', CustomView.as_view(), name='custom-view'),
+    # path('services-list/', ServiceListView.as_view(), name='services-list'),
     path('services/<int:pk>/book/', BookAppointment.as_view(), name='book-appointment'),
     # Add other URLs as needed
 ]

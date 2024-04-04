@@ -16,48 +16,20 @@ class AppointmentViewSet(viewsets.ModelViewSet):
     serializer_class = AppointmentSerializer
     permission_classes = [AllowAny]
 
-class CustomView(APIView):
-    def get(self, request):
-        # Your custom logic here
-        return Response({"message": "Hello, this is a custom view!"})
-
-class ServiceListView(APIView):
-    permission_classes = [AllowAny]
-
-    def get(self, request):
-        services = Service.objects.all()
-        serializer = ServiceSerializer(services, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = ServiceSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)
-
 class BookAppointment(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, pk):
-        try:
-            service = Service.objects.get(pk=pk)
-        except Service.DoesNotExist:
+        service = Service.objects.filter(pk=pk).first()
+        if not service:
             return Response({"error": "Service not found"}, status=404)
-
-        data = {
-            "service": service.id,
-            "customer": None,  # Assuming you'll handle this in the frontend
-            "appointment_date": request.data.get("date"),
-            "status": "pending",  # Assuming the status is always pending initially
-            "first_name": request.data.get("first_name"),
-            "last_name": request.data.get("last_name"),
-            "email": request.data.get("email"),
-        }
-
-        serializer = AppointmentSerializer(data=data)
+        
+        appointment_data = request.data.copy()  # Create a mutable copy of the request data
+        appointment_data['service'] = pk  # Explicitly add the service ID to the appointment data
+        
+        serializer = AppointmentSerializer(data=appointment_data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)
-
+        else:
+            return Response(serializer.errors, status=400)
