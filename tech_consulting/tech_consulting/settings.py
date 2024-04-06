@@ -16,7 +16,7 @@ import os
 import sys
 from decouple import config
 
-sys.path.insert(0, 'C:\\Users\\izinx\\development\\seir_seal\\projects\\Project4\\backend\\tech_consulting')
+
 # AUTH_USER_MODEL = 'izzy_tech_consulting.User'
 
 
@@ -31,7 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(0m&q-4v#x#pulhd)p3fnovfdb8qehl0rsp3+*t7^i)k0(bt_h'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default-secret-key')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -75,7 +76,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',  # Add this line
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 ROOT_URLCONF = 'tech_consulting.urls'
 
