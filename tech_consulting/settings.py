@@ -43,6 +43,7 @@ ALLOWED_HOSTS = ['.onrender.com']
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Add the origin of your frontend application
+    'https://seir-seal-unit4-project4-frontend.vercel.app'
 ]
 
 # Application definition
